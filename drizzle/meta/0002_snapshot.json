@@ -1,12 +1,12 @@
 {
-  "id": "35b55c56-f903-40a1-8301-d04b147fe951",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "98a7c8a6-1711-40b8-a89a-4345f380a508",
+  "prevId": "4a833c73-fb85-4c1b-94f2-1d03657ca9b8",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "raidscurry.group": {
+    "raid_scurry.group": {
       "name": "group",
-      "schema": "raidscurry",
+      "schema": "raid_scurry",
       "columns": {
         "id": {
           "name": "id",
@@ -51,7 +51,7 @@
           "name": "group_group_blueprint_id_group_blueprint_id_fk",
           "tableFrom": "group",
           "tableTo": "group_blueprint",
-          "schemaTo": "raidscurry",
+          "schemaTo": "raid_scurry",
           "columnsFrom": [
             "group_blueprint_id"
           ],
@@ -65,9 +65,9 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "raidscurry.group_blueprint": {
+    "raid_scurry.group_blueprint": {
       "name": "group_blueprint",
-      "schema": "raidscurry",
+      "schema": "raid_scurry",
       "columns": {
         "id": {
           "name": "id",
@@ -99,8 +99,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "allowFill": {
-          "name": "allowFill",
+        "allow_fill": {
+          "name": "allow_fill",
           "type": "boolean",
           "primaryKey": false,
           "notNull": false
@@ -111,9 +111,9 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "raidscurry.group_member": {
+    "raid_scurry.group_member": {
       "name": "group_member",
-      "schema": "raidscurry",
+      "schema": "raid_scurry",
       "columns": {
         "id": {
           "name": "id",
@@ -146,7 +146,7 @@
           "name": "group_member_group_id_group_id_fk",
           "tableFrom": "group_member",
           "tableTo": "group",
-          "schemaTo": "raidscurry",
+          "schemaTo": "raid_scurry",
           "columnsFrom": [
             "group_id"
           ],
@@ -160,9 +160,9 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "raidscurry.group_role_blueprint": {
+    "raid_scurry.group_role_blueprint": {
       "name": "group_role_blueprint",
-      "schema": "raidscurry",
+      "schema": "raid_scurry",
       "columns": {
         "id": {
           "name": "id",
@@ -201,7 +201,7 @@
           "name": "group_role_blueprint_group_blueprint_id_group_blueprint_id_fk",
           "tableFrom": "group_role_blueprint",
           "tableTo": "group_blueprint",
-          "schemaTo": "raidscurry",
+          "schemaTo": "raid_scurry",
           "columnsFrom": [
             "group_blueprint_id"
           ],
@@ -215,9 +215,9 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "raidscurry.members": {
+    "raid_scurry.members": {
       "name": "members",
-      "schema": "raidscurry",
+      "schema": "raid_scurry",
       "columns": {
         "id": {
           "name": "id",
@@ -246,7 +246,7 @@
   },
   "enums": {},
   "schemas": {
-    "raidscurry": "raidscurry"
+    "raid_scurry": "raid_scurry"
   },
   "sequences": {},
   "_meta": {

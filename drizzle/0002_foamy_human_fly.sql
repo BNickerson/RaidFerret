@@ -1,0 +1,1 @@
+ALTER TABLE "raid_scurry"."group_blueprint" RENAME COLUMN "allowFill" TO "allow_fill";
