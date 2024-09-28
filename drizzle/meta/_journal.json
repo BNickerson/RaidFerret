@@ -22,6 +22,27 @@
       "when": 1727294683655,
       "tag": "0002_foamy_human_fly",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1727465515880,
+      "tag": "0003_easy_red_skull",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1727534748708,
+      "tag": "0004_faulty_jubilee",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1727542038491,
+      "tag": "0005_supreme_morlun",
+      "breakpoints": true
     }
   ]
 }

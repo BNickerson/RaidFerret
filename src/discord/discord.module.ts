@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { IntentsBitField } from 'discord.js';
 import { ConfigModule } from '@nestjs/config';
 import { CommandsModule } from './commands/commands.module';
-import { ListenersModule } from './events/events.module';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { ListenersModule } from './events/events.module';
       ],
       development: [process.env.DEV_GUILD],
     }),
-    ListenersModule,
+    EventsModule,
     CommandsModule,
   ],
   providers: [],

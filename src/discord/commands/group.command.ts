@@ -1,5 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { Context, SlashCommand, SlashCommandContext } from 'necord';
+import {
+  Context,
+  SlashCommand,
+  SlashCommandContext,
+  UserCommand,
+  UserCommandContext,
+} from 'necord';
+
+const inviteUI = {};
 
 @Injectable()
 export class GroupCommand {
@@ -7,7 +15,7 @@ export class GroupCommand {
     name: 'group',
     description: 'start a group',
   })
-  public async onInteraction(@Context() [interaction]: SlashCommandContext) {
+  public async onSlashCommand(@Context() [interaction]: SlashCommandContext) {
     return interaction.reply({ content: 'Pong!' });
   }
 }

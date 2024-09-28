@@ -1,0 +1,1 @@
+ALTER TABLE "raid_scurry"."track_member" ALTER COLUMN "track_id" DROP NOT NULL;

@@ -3,7 +3,7 @@ import { DATABASE_CONNECTION } from './database-connection';
 import { ConfigService } from '@nestjs/config';
 import { Pool } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { raidScurrySchema } from './database.schema';
+import * as schema from './database.schema';
 
 @Module({
   providers: [
@@ -15,7 +15,7 @@ import { raidScurrySchema } from './database.schema';
         });
         return drizzle(pool, {
           schema: {
-            ...raidScurrySchema,
+            ...schema,
           },
         });
       },
