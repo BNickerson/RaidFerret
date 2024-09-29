@@ -14,6 +14,7 @@ import { EventsModule } from './events/events.module';
         IntentsBitField.Flags.Guilds,
         IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.GuildMembers,
       ],
       development: [process.env.DEV_GUILD],
     }),

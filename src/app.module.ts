@@ -7,6 +7,7 @@ import { EventsModule } from './discord/events/events.module';
 import { GroupsModule } from './groups/groups.module';
 import { DiscordModule } from './discord/discord.module';
 import { TracksService } from './tracks/tracks.service';
+import { DiscordService } from './discord/services/discord.service';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { TracksService } from './tracks/tracks.service';
     GroupsModule,
     DiscordModule,
   ],
-  providers: [TracksService],
+  providers: [TracksService, DiscordService],
 })
 export class AppModule {}

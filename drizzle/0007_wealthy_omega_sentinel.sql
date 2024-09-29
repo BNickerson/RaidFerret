@@ -1,0 +1,1 @@
+ALTER TABLE "track_reward" RENAME COLUMN "value" TO "description";

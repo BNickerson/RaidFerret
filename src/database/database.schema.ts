@@ -1,6 +1,9 @@
+import { relations } from 'drizzle-orm';
 import {
   boolean,
+  index,
   integer,
+  jsonb,
   pgSchema,
   pgTable,
   serial,
@@ -69,14 +72,33 @@ export const trackReward = pgTable('track_reward', {
     .references(() => track.id)
     .notNull(),
   name: varchar('name').notNull(),
-  description: varchar('value'),
+  description: varchar('description'),
+  isRoleReward: boolean('is_role_reward'),
+  roleId: varchar('role_id'),
   level: integer('level').notNull(),
 });
 
-export const trackMember = pgTable('track_member', {
-  id: serial('id').primaryKey(),
-  memberId: varchar('member_id'),
-  trackId: integer('track_id').references(() => track.id),
-  trackXp: integer('track_value'),
-  trackLevel: integer('track_level'),
-});
+export const trackMember = pgTable(
+  'track_member',
+  {
+    id: serial('id').primaryKey(),
+    memberId: varchar('member_id'),
+    trackId: integer('track_id').references(() => track.id),
+    trackXp: integer('track_value'),
+    trackLevel: integer('track_level'),
+  },
+  (trackMember) => {
+    return {
+      trackIdIdx: index('track_member_track_id_idx').on(trackMember.trackId),
+      memberIdIdx: index('track_member_member_id_idx').on(trackMember.memberId),
+    };
+  },
+);
+
+export const trackMemberRelations = relations(trackMember, ({ one }) => ({
+  track: one(track, {
+    fields: [trackMember.id],
+    references: [track.id],
+    relationName: 'track',
+  }),
+}));
