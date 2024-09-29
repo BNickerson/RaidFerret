@@ -11,8 +11,6 @@ import * as schema from './database.schema';
     {
       provide: DATABASE_CONNECTION,
       useFactory: (configService: ConfigService) => {
-        neonConfig.webSocketConstructor = ws;
-        neonConfig.poolQueryViaFetch = true;
         const pool = new Pool({
           connectionString: configService.getOrThrow('DATABASE_URL'),
         });
