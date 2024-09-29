@@ -63,7 +63,7 @@ export class TracksService {
       this.xpCooldowns.set(cooldownKey, Date.now());
       setTimeout(() => {
         this.xpCooldowns.delete(cooldownKey);
-      }, 10000);
+      }, track.cooldownSeconds * 1000);
 
       const xpAmount = this.calculateXp(
         track.baseXp,

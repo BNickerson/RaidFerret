@@ -64,6 +64,7 @@ export const track = pgTable('track', {
   baseXp: integer('base_xp'),
   baseXpRandomizePercent: integer('base_xp_randomize_percent'),
   xpMultiplier: integer('xp_multiplier'),
+  cooldownSeconds: integer('cooldown_seconds'),
 });
 
 export const trackReward = pgTable('track_reward', {
