@@ -77,11 +77,15 @@ export class TracksService {
       );
       const previousLevel = getLevel(updatedTrackMember.trackXp - xpAmount);
       const currentLevel = getLevel(updatedTrackMember.trackXp);
-      this.logger.log(
-        `Previous level: ${previousLevel}, Current level: ${currentLevel}`,
-      );
       if (previousLevel !== currentLevel) {
-        this.logger.log(`User ${memberId} leveled up in track ${track.id}`);
+        this.logger.log(track.logChannelId);
+        if (track.logChannelId) {
+          this.discordService.sendLogMessage(
+            guildId,
+            track.logChannelId,
+            `<@${memberId}> leveled up to level ${currentLevel}`,
+          );
+        }
         const rewards = await this.db.query.trackReward.findMany({
           where: (trackRewards, { and, eq }) =>
             and(
@@ -94,8 +98,17 @@ export class TracksService {
             `User ${memberId} earned ${rewards.length} rewards for leveling up`,
           );
           const rewardsWithRoles = rewards.filter((x) => x.isRoleReward);
-          const roleId = rewardsWithRoles.map((x) => x.roleId);
-          await this.discordService.addMembertoRoles(guildId, memberId, roleId);
+          const roleIds = rewardsWithRoles.map((x) => x.roleId);
+          await this.discordService.addMembertoRoles(
+            guildId,
+            memberId,
+            roleIds,
+          );
+          await this.discordService.sendLogMessage(
+            guildId,
+            track.logChannelId,
+            `<@${memberId}> was added to ${roleIds.map((x) => `<@&${x}>`).join(', ')}`,
+          );
           return;
         }
       }

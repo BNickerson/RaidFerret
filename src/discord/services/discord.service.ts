@@ -48,6 +48,7 @@ export class DiscordService {
     message: string,
     type: 'info' | 'error' | 'success' = 'info',
   ) {
+    this.logger.log(`Sending log message to ${guildId}#${channelId}`);
     const guild = await this.client.guilds.fetch(guildId);
     const channel = guild.channels.cache.get(channelId) as TextChannel;
     if (!channel) {
