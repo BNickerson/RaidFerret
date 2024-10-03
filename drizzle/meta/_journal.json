@@ -78,6 +78,13 @@
       "when": 1727627812870,
       "tag": "0010_bumpy_talon",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1727963287486,
+      "tag": "0011_last_midnight",
+      "breakpoints": true
     }
   ]
 }

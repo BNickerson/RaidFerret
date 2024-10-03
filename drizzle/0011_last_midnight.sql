@@ -1,0 +1,1 @@
+ALTER TABLE "track" ADD COLUMN "log_channel_id" varchar;

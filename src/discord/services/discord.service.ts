@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Client, TextChannel } from 'discord.js'; // Or import from Necord
+import { Client, EmbedBuilder, TextChannel } from 'discord.js'; // Or import from Necord
 
 @Injectable()
 export class DiscordService {
@@ -40,5 +40,25 @@ export class DiscordService {
       const role = await guild.roles.fetch(roleId);
       await member.roles.add(role);
     }
+  }
+
+  public async sendLogMessage(
+    guildId: string,
+    channelId: string,
+    message: string,
+    type: 'info' | 'error' | 'success' = 'info',
+  ) {
+    const guild = await this.client.guilds.fetch(guildId);
+    const channel = guild.channels.cache.get(channelId) as TextChannel;
+    if (!channel) {
+      throw new Error('Channel not found');
+    }
+
+    const embed = new EmbedBuilder()
+      .setDescription(message)
+      .setColor(
+        type === 'info' ? '#68a4ff' : type === 'error' ? '#ff5252' : '#86f58b',
+      );
+    await channel.send({ embeds: [embed] });
   }
 }
