@@ -15,7 +15,6 @@ export class MessageCreateEvent {
     @Context() [message]: ContextOf<'messageCreate'>,
   ) {
     if (message.author.bot) return;
-    this.logger.log(`Message received: ${message.content}`);
     await this.tracksService.processMessageXp(
       message.guild.id,
       message.author.id,
